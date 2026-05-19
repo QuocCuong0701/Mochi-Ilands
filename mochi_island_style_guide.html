@@ -1,0 +1,462 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap');
+
+  .mi-root {
+    font-family: 'Nunito', sans-serif;
+    padding: 0;
+    color: var(--color-text-primary);
+  }
+
+  .mi-section {
+    margin-bottom: 2rem;
+  }
+
+  .mi-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+  }
+
+  /* PALETTE */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+  }
+  .swatch {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  }
+  .swatch-block {
+    height: 56px;
+  }
+  .swatch-info {
+    padding: 7px 10px 8px;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+  }
+  .swatch-name {
+    font-size: 12px;
+    font-weight: 700;
+    display: block;
+    color: var(--color-text-primary);
+  }
+  .swatch-hex {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+  }
+
+  /* TYPOGRAPHY */
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+  .type-label {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    min-width: 80px;
+    font-weight: 600;
+  }
+  .type-preview-heading {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+  }
+
+  /* COMPONENTS */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    background: #FF8C42;
+    color: #fff;
+    box-shadow: 0 4px 0 #C95F15;
+    transition: transform 0.1s, box-shadow 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:active { transform: translateY(3px); box-shadow: 0 1px 0 #C95F15; }
+
+  .btn-secondary {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: 3px solid #5B4FCF;
+    background: #fff;
+    color: #5B4FCF;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Word Cards */
+  .word-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 18px;
+    border: 3px solid #E8E0FF;
+    box-shadow: 0 4px 0 #C5B8FF;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.15s;
+    position: relative;
+  }
+  .word-card:hover { transform: translateY(-3px); }
+  .word-card.correct { border-color: #5BC97A; box-shadow: 0 4px 0 #33A055; }
+  .word-card.wrong { border-color: #FF6B6B; box-shadow: 0 4px 0 #C94444; }
+
+  .word-card-emoji { font-size: 36px; display: block; margin-bottom: 6px; }
+  .word-card-word {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    font-size: 16px;
+    color: #3D2F8F;
+  }
+  .word-card-vn {
+    font-size: 12px;
+    color: #888;
+    font-weight: 600;
+  }
+
+  /* Progress bar */
+  .prog-wrap {
+    background: #EDE9FF;
+    border-radius: 50px;
+    height: 18px;
+    overflow: hidden;
+    border: 2px solid #C5B8FF;
+  }
+  .prog-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #FF8C42, #FFB347);
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    font-size: 10px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  /* Star fruits */
+  .star-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #FFF3D6;
+    border: 2px solid #FFB347;
+    border-radius: 50px;
+    padding: 5px 14px 5px 8px;
+    font-weight: 800;
+    font-size: 14px;
+    color: #B85C00;
+  }
+
+  /* Island card */
+  .island-card {
+    border-radius: 22px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s;
+    position: relative;
+  }
+  .island-card:hover { transform: translateY(-2px); }
+  .island-card.unlocked { background: #F0FFFE; border-color: #5DCAA5; }
+  .island-card.locked { background: #F5F5F5; border-color: #DDD; opacity: 0.6; }
+  .island-icon { font-size: 42px; }
+  .island-name {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: 16px;
+    color: #1A5C40;
+    display: block;
+  }
+  .island-locked-name { color: #888; }
+  .island-sub { font-size: 12px; color: #6B9E87; font-weight: 600; }
+  .island-lock { font-size: 18px; position: absolute; top: 12px; right: 14px; }
+
+  /* Mochi mascot SVG mini */
+  .mochi-face {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #FFE0B2;
+    border: 3px solid #FFB347;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    box-shadow: 0 4px 0 #E09020;
+  }
+
+  /* Mic button */
+  .mic-btn {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #5B4FCF;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 0 #3B2FA0;
+    cursor: pointer;
+    font-size: 28px;
+    transition: transform 0.1s;
+  }
+  .mic-btn:active { transform: translateY(4px); box-shadow: 0 1px 0 #3B2FA0; }
+  .mic-btn.active { background: #FF6B6B; box-shadow: 0 5px 0 #C94444; animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--color-border-tertiary);
+    margin: 1.8rem 0;
+  }
+
+  .screen-frame {
+    border-radius: 24px;
+    border: 3px solid #E8E0FF;
+    overflow: hidden;
+    background: linear-gradient(160deg, #F0EEFF 0%, #FFF7EF 100%);
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(91,79,207,0.10);
+  }
+</style>
+
+<div class="mi-root">
+  <h2 style="sr-only"></h2>
+
+  <!-- HEADER -->
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:2rem; padding:18px 20px; background:#F0EEFF; border-radius:20px; border: 2px solid #C5B8FF;">
+    <div class="mochi-face">🐣</div>
+    <div>
+      <div style="font-family:'Baloo 2',cursive; font-weight:900; font-size:26px; color:#3D2F8F; line-height:1.1;">Mochi Island</div>
+      <div style="font-size:13px; color:#7B68CC; font-weight:600;">Style Guide & Design System</div>
+    </div>
+    <div style="margin-left:auto;">
+      <div class="star-badge">⭐ 48 Star Fruits</div>
+    </div>
+  </div>
+
+  <!-- PALETTE -->
+  <div class="mi-section">
+    <div class="mi-label">Bảng màu chính</div>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-block" style="background:#5B4FCF;"></div>
+        <div class="swatch-info"><span class="swatch-name">Mochi Purple</span><span class="swatch-hex">#5B4FCF · Chính</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#FF8C42;"></div>
+        <div class="swatch-info"><span class="swatch-name">Star Orange</span><span class="swatch-hex">#FF8C42 · CTA</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#5BC97A;"></div>
+        <div class="swatch-info"><span class="swatch-name">Correct Green</span><span class="swatch-hex">#5BC97A · Đúng</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#FF6B6B;"></div>
+        <div class="swatch-info"><span class="swatch-name">Wrong Red</span><span class="swatch-hex">#FF6B6B · Sai</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#FFB347;"></div>
+        <div class="swatch-info"><span class="swatch-name">Star Yellow</span><span class="swatch-hex">#FFB347 · Điểm thưởng</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#F0EEFF;"></div>
+        <div class="swatch-info"><span class="swatch-name">Cloud White</span><span class="swatch-hex">#F0EEFF · Nền</span></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TYPOGRAPHY -->
+  <div class="mi-section">
+    <div class="mi-label">Typography</div>
+    <div class="type-row">
+      <span class="type-label">Tiêu đề</span>
+      <span class="type-preview-heading" style="font-size:28px; color:#3D2F8F;">Baloo 2 · Bold 800</span>
+    </div>
+    <div class="type-row">
+      <span class="type-label">Sub-heading</span>
+      <span class="type-preview-heading" style="font-size:20px; color:#5B4FCF;">Baloo 2 · 700</span>
+    </div>
+    <div class="type-row">
+      <span class="type-label">Từ vựng</span>
+      <span style="font-family:'Nunito',sans-serif; font-size:17px; font-weight:800; color:#3D2F8F;">Nunito · ExtraBold — APPLE</span>
+    </div>
+    <div class="type-row">
+      <span class="type-label">Body</span>
+      <span style="font-family:'Nunito',sans-serif; font-size:14px; font-weight:600; color:var(--color-text-secondary);">Nunito · SemiBold — phiên âm, hướng dẫn</span>
+    </div>
+    <div style="margin-top:12px; padding:12px 16px; background:#F0EEFF; border-radius:12px; border-left:4px solid #5B4FCF;">
+      <span style="font-size:12px; color:#5B4FCF; font-weight:700;">💡 Lý do chọn:</span>
+      <span style="font-size:12px; color:#5B4FCF;"> Baloo 2 bo tròn, vui tươi → tiêu đề đảo. Nunito góc tròn, dễ đọc → từ vựng, nội dung.</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- BUTTONS -->
+  <div class="mi-section">
+    <div class="mi-label">Buttons & Interactive</div>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:16px;">
+      <button class="btn-primary">🎮 Chơi ngay!</button>
+      <button class="btn-secondary">📚 Ôn bài</button>
+      <button class="mic-btn" title="Nói từ này">🎙️</button>
+      <button class="mic-btn active" title="Đang nghe...">🎙️</button>
+    </div>
+    <div style="font-size:11px; color:var(--color-text-secondary); font-weight:600;">← Nút cam = CTA chính &nbsp;|&nbsp; Nút outline = phụ &nbsp;|&nbsp; Mic tím = chờ &nbsp;|&nbsp; Mic đỏ = đang ghi âm</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- WORD CARDS -->
+  <div class="mi-section">
+    <div class="mi-label">Word Cards — Mini-game "Feed the Word"</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:420px;">
+      <div class="word-card">
+        <span class="word-card-emoji">🐱</span>
+        <div class="word-card-word">Cat</div>
+        <div class="word-card-vn">con mèo</div>
+      </div>
+      <div class="word-card correct">
+        <span class="word-card-emoji">🐶</span>
+        <div class="word-card-word" style="color:#1A7A3A;">Dog</div>
+        <div class="word-card-vn" style="color:#5BC97A;">✓ Đúng rồi!</div>
+      </div>
+      <div class="word-card wrong">
+        <span class="word-card-emoji">🐟</span>
+        <div class="word-card-word" style="color:#C94444;">Fish</div>
+        <div class="word-card-vn" style="color:#FF6B6B;">✗ Thử lại</div>
+      </div>
+    </div>
+    <div style="margin-top:10px; font-size:11px; color:var(--color-text-secondary); font-weight:600;">Bo tròn 20px · Viền 3px · Bóng đổ màu → cảm giác "nút vật lý" cho bé</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- PROGRESS & REWARD -->
+  <div class="mi-section">
+    <div class="mi-label">Progress & Reward System</div>
+    <div style="display:flex; flex-direction:column; gap:10px; max-width:380px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="font-size:13px; font-weight:700; min-width:60px; color:#5B4FCF;">Level 1</span>
+        <div class="prog-wrap" style="flex:1;">
+          <div class="prog-bar" style="width:80%;">80%</div>
+        </div>
+        <span style="font-size:16px;">⭐⭐⭐</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="font-size:13px; font-weight:700; min-width:60px; color:#5B4FCF;">Level 2</span>
+        <div class="prog-wrap" style="flex:1;">
+          <div class="prog-bar" style="width:40%;">40%</div>
+        </div>
+        <span style="font-size:16px;">⭐⭐</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="font-size:13px; font-weight:700; min-width:60px; color:#999;">Level 3</span>
+        <div class="prog-wrap" style="flex:1; opacity:0.4;">
+          <div class="prog-bar" style="width:0%;"></div>
+        </div>
+        <span style="font-size:16px; opacity:0.3;">🔒</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ISLAND CARDS -->
+  <div class="mi-section">
+    <div class="mi-label">Island Selection Cards</div>
+    <div style="display:flex; flex-direction:column; gap:10px; max-width:380px;">
+      <div class="island-card unlocked">
+        <div class="island-icon">🌿</div>
+        <div>
+          <span class="island-name">Green Island</span>
+          <span class="island-sub">Động vật · 24 từ · Đang học</span>
+        </div>
+        <div style="margin-left:auto; background:#5BC97A; color:#fff; font-size:11px; font-weight:800; padding:4px 10px; border-radius:50px;">Đang học</div>
+      </div>
+      <div class="island-card unlocked" style="background:#FFF7EF; border-color:#FFB347;">
+        <div class="island-icon">🍎</div>
+        <div>
+          <span class="island-name" style="color:#8B4500;">Food Island</span>
+          <span class="island-sub" style="color:#C07A30;">Thức ăn · 24 từ · Mở khóa</span>
+        </div>
+        <div style="margin-left:auto; background:#FFB347; color:#fff; font-size:11px; font-weight:800; padding:4px 10px; border-radius:50px;">Mới!</div>
+      </div>
+      <div class="island-card locked">
+        <div class="island-icon">🎨</div>
+        <div>
+          <span class="island-name island-locked-name">Color Island</span>
+          <span class="island-sub" style="color:#AAA;">Màu sắc · Cần 50⭐ để mở</span>
+        </div>
+        <div class="island-lock">🔒</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- DESIGN PRINCIPLES -->
+  <div class="mi-section">
+    <div class="mi-label">Nguyên tắc thiết kế</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px;">
+      <div style="background:#F0EEFF; border-radius:16px; padding:14px; border:2px solid #C5B8FF;">
+        <div style="font-size:22px; margin-bottom:6px;">🔵</div>
+        <div style="font-weight:800; font-size:13px; color:#3D2F8F; margin-bottom:4px;">Bo tròn tối đa</div>
+        <div style="font-size:12px; color:#7B68CC;">Radius 16–24px, không có góc nhọn nào</div>
+      </div>
+      <div style="background:#FFF7EF; border-radius:16px; padding:14px; border:2px solid #FFD299;">
+        <div style="font-size:22px; margin-bottom:6px;">🎯</div>
+        <div style="font-weight:800; font-size:13px; color:#8B4500; margin-bottom:4px;">Nút "vật lý"</div>
+        <div style="font-size:12px; color:#C07A30;">Box-shadow tạo độ nổi, bé thích nhấn</div>
+      </div>
+      <div style="background:#F0FFF7; border-radius:16px; padding:14px; border:2px solid #99E8BB;">
+        <div style="font-size:22px; margin-bottom:6px;">✨</div>
+        <div style="font-weight:800; font-size:13px; color:#1A5C40; margin-bottom:4px;">Feedback tức thì</div>
+        <div style="font-size:12px; color:#3A9065;">Màu + animation ngay khi chọn đúng/sai</div>
+      </div>
+      <div style="background:#FFF0F0; border-radius:16px; padding:14px; border:2px solid #FFB3B3;">
+        <div style="font-size:22px; margin-bottom:6px;">🖼️</div>
+        <div style="font-weight:800; font-size:13px; color:#8B0000; margin-bottom:4px;">Emoji-first</div>
+        <div style="font-size:12px; color:#C94444;">Dùng emoji thay icon → không cần asset</div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,104 @@
+{
+  "islands": [
+    {
+      "id": "green-island",
+      "name": "Green Island",
+      "theme": "Động vật",
+      "icon": "🌿",
+      "levels": [
+        {
+          "id": 1,
+          "name": "Thú cưng quen thuộc",
+          "words": [
+            { "id": 1, "word": "cat", "phonetic": "/kæt/", "meaning": "con mèo", "imageHint": "mèo cam nằm cuộn" },
+            { "id": 2, "word": "dog", "phonetic": "/dɒɡ/", "meaning": "con chó", "imageHint": "chó vàng ngồi vẫy đuôi" },
+            { "id": 3, "word": "fish", "phonetic": "/fɪʃ/", "meaning": "con cá", "imageHint": "cá vàng trong bể" },
+            { "id": 4, "word": "bird", "phonetic": "/bɜːrd/", "meaning": "con chim", "imageHint": "chim xanh đậu cành" },
+            { "id": 5, "word": "rabbit", "phonetic": "/ˈræbɪt/", "meaning": "con thỏ", "imageHint": "thỏ trắng tai dài" },
+            { "id": 6, "word": "duck", "phonetic": "/dʌk/", "meaning": "con vịt", "imageHint": "vịt vàng đang bơi" },
+            { "id": 7, "word": "frog", "phonetic": "/frɒɡ/", "meaning": "con ếch", "imageHint": "ếch xanh ngồi lá sen" },
+            { "id": 8, "word": "turtle", "phonetic": "/ˈtɜːrtl/", "meaning": "con rùa", "imageHint": "rùa xanh nhỏ dễ thương" }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Thú nông trại",
+          "words": [
+            { "id": 9, "word": "cow", "phonetic": "/kaʊ/", "meaning": "con bò", "imageHint": "bò đen trắng đồng cỏ" },
+            { "id": 10, "word": "pig", "phonetic": "/pɪɡ/", "meaning": "con heo", "imageHint": "heo hồng tròn mũm" },
+            { "id": 11, "word": "horse", "phonetic": "/hɔːrs/", "meaning": "con ngựa", "imageHint": "ngựa nâu bờm dài" },
+            { "id": 12, "word": "sheep", "phonetic": "/ʃiːp/", "meaning": "con cừu", "imageHint": "cừu trắng xù bông" },
+            { "id": 13, "word": "hen", "phonetic": "/hɛn/", "meaning": "con gà mái", "imageHint": "gà mái đỏ mào" },
+            { "id": 14, "word": "chick", "phonetic": "/tʃɪk/", "meaning": "con gà con", "imageHint": "gà con vàng nhỏ xíu" },
+            { "id": 15, "word": "goat", "phonetic": "/ɡoʊt/", "meaning": "con dê", "imageHint": "dê trắng sừng nhỏ" },
+            { "id": 16, "word": "donkey", "phonetic": "/ˈdɒŋki/", "meaning": "con lừa", "imageHint": "lừa xám tai to" }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Thú rừng",
+          "words": [
+            { "id": 17, "word": "lion", "phonetic": "/ˈlaɪən/", "meaning": "con sư tử", "imageHint": "sư tử bờm vàng oai" },
+            { "id": 18, "word": "elephant", "phonetic": "/ˈɛlɪfənt/", "meaning": "con voi", "imageHint": "voi xám vòi dài" },
+            { "id": 19, "word": "monkey", "phonetic": "/ˈmʌŋki/", "meaning": "con khỉ", "imageHint": "khỉ nâu đu cành" },
+            { "id": 20, "word": "bear", "phonetic": "/bɛr/", "meaning": "con gấu", "imageHint": "gấu nâu mập dễ thương" },
+            { "id": 21, "word": "tiger", "phonetic": "/ˈtaɪɡər/", "meaning": "con hổ", "imageHint": "hổ vàng sọc đen" },
+            { "id": 22, "word": "zebra", "phonetic": "/ˈziːbrə/", "meaning": "con ngựa vằn", "imageHint": "ngựa trắng đen sọc" },
+            { "id": 23, "word": "giraffe", "phonetic": "/dʒɪˈrɑːf/", "meaning": "con hươu cao cổ", "imageHint": "hươu cổ dài chấm nâu" },
+            { "id": 24, "word": "hippo", "phonetic": "/ˈhɪpoʊ/", "meaning": "con hà mã", "imageHint": "hà mã xám miệng to" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food-island",
+      "name": "Food Island",
+      "theme": "Thức ăn",
+      "icon": "🍎",
+      "levels": [
+        {
+          "id": 1,
+          "name": "Trái cây",
+          "words": [
+            { "id": 1, "word": "apple", "phonetic": "/ˈæpl/", "meaning": "quả táo", "imageHint": "táo đỏ bóng bẩy" },
+            { "id": 2, "word": "banana", "phonetic": "/bəˈnɑːnə/", "meaning": "quả chuối", "imageHint": "chuối vàng cong" },
+            { "id": 3, "word": "orange", "phonetic": "/ˈɒrɪndʒ/", "meaning": "quả cam", "imageHint": "cam tròn múi vàng" },
+            { "id": 4, "word": "grape", "phonetic": "/ɡreɪp/", "meaning": "quả nho", "imageHint": "chùm nho tím" },
+            { "id": 5, "word": "mango", "phonetic": "/ˈmæŋɡoʊ/", "meaning": "quả xoài", "imageHint": "xoài vàng thơm" },
+            { "id": 6, "word": "watermelon", "phonetic": "/ˈwɔːtərˌmɛlən/", "meaning": "quả dưa hấu", "imageHint": "dưa đỏ ruột xanh vỏ" },
+            { "id": 7, "word": "strawberry", "phonetic": "/ˈstrɔːbəri/", "meaning": "dâu tây", "imageHint": "dâu đỏ hạt nhỏ" },
+            { "id": 8, "word": "coconut", "phonetic": "/ˈkoʊkənʌt/", "meaning": "quả dừa", "imageHint": "dừa xanh nước ngọt" }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Đồ uống & món ngọt",
+          "words": [
+            { "id": 9, "word": "milk", "phonetic": "/mɪlk/", "meaning": "sữa", "imageHint": "hộp sữa trắng" },
+            { "id": 10, "word": "juice", "phonetic": "/dʒuːs/", "meaning": "nước ép", "imageHint": "ly nước cam vàng" },
+            { "id": 11, "word": "water", "phonetic": "/ˈwɔːtər/", "meaning": "nước lọc", "imageHint": "chai nước trong suốt" },
+            { "id": 12, "word": "cake", "phonetic": "/keɪk/", "meaning": "bánh kem", "imageHint": "bánh sinh nhật nến" },
+            { "id": 13, "word": "cookie", "phonetic": "/ˈkʊki/", "meaning": "bánh quy", "imageHint": "bánh quy tròn nâu" },
+            { "id": 14, "word": "candy", "phonetic": "/ˈkændi/", "meaning": "kẹo", "imageHint": "kẹo nhiều màu sắc" },
+            { "id": 15, "word": "ice cream", "phonetic": "/ˈaɪs kriːm/", "meaning": "kem", "imageHint": "kem ốc quế 3 màu" },
+            { "id": 16, "word": "chocolate", "phonetic": "/ˈtʃɒklət/", "meaning": "sô cô la", "imageHint": "thanh sô cô la nâu" }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Bữa ăn hàng ngày",
+          "words": [
+            { "id": 17, "word": "rice", "phonetic": "/raɪs/", "meaning": "cơm", "imageHint": "bát cơm trắng bốc hơi" },
+            { "id": 18, "word": "bread", "phonetic": "/brɛd/", "meaning": "bánh mì", "imageHint": "ổ bánh mì nâu vàng" },
+            { "id": 19, "word": "egg", "phonetic": "/ɛɡ/", "meaning": "trứng", "imageHint": "trứng chiên vàng" },
+            { "id": 20, "word": "soup", "phonetic": "/suːp/", "meaning": "canh/súp", "imageHint": "tô súp nóng" },
+            { "id": 21, "word": "noodle", "phonetic": "/ˈnuːdl/", "meaning": "mì/bún", "imageHint": "tô mì vàng sợi dài" },
+            { "id": 22, "word": "pizza", "phonetic": "/ˈpiːtsə/", "meaning": "pizza", "imageHint": "pizza tròn nhiều màu" },
+            { "id": 23, "word": "burger", "phonetic": "/ˈbɜːrɡər/", "meaning": "bánh burger", "imageHint": "burger tầng cao" },
+            { "id": 24, "word": "sandwich", "phonetic": "/ˈsænwɪtʃ/", "meaning": "bánh mì kẹp", "imageHint": "sandwich tam giác" }
+          ]
+        }
+      ]
+    }
+  ]
+}

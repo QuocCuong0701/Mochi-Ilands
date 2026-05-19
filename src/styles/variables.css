@@ -1,0 +1,52 @@
+:root {
+  /* Palette */
+  --color-purple: #5B4FCF;
+  --color-purple-dark: #3B2FA0;
+  --color-purple-light: #C5B8FF;
+  --color-purple-bg: #F0EEFF;
+
+  --color-orange: #FF8C42;
+  --color-orange-dark: #C95F15;
+  --color-orange-light: #FFD299;
+  --color-orange-bg: #FFF7EF;
+
+  --color-green: #5BC97A;
+  --color-green-dark: #33A055;
+  --color-green-bg: #F0FFF7;
+
+  --color-red: #FF6B6B;
+  --color-red-dark: #C94444;
+  --color-red-bg: #FFF0F0;
+
+  --color-yellow: #FFB347;
+  --color-yellow-bg: #FFF3D6;
+
+  --color-border-card: #E8E0FF;
+  --color-border-tertiary: #DDD;
+
+  --color-text-primary: #3D2F8F;
+  --color-text-secondary: #7B68CC;
+  --color-text-muted: #888;
+  --color-text-dark: #333;
+
+  --color-white: #fff;
+  --color-bg: #F0EEFF;
+
+  /* Typography */
+  --font-heading: 'Baloo 2', cursive;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 50px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 0 var(--color-purple-light);
+  --shadow-btn-primary: 0 4px 0 var(--color-orange-dark);
+  --shadow-btn-mic: 0 5px 0 var(--color-purple-dark);
+  --shadow-mochi: 0 4px 0 #E09020;
+  --shadow-float: 0 8px 24px rgba(91, 79, 207, 0.10);
+}
