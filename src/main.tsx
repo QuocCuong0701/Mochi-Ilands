@@ -5,6 +5,7 @@ import { GameProvider } from './store/GameContext'
 import App from './App'
 import './index.css'
 
+// Entry point: render React app với BrowserRouter + GameProvider
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>

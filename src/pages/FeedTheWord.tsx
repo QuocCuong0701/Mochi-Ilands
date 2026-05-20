@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getIsland } from '../data/islands'
 import { useGame } from '../store/GameContext'
@@ -8,7 +8,8 @@ import WordCard from '../components/ui/WordCard'
 import Button from '../components/ui/Button'
 import type { Word } from '../types'
 
-function shuffle<T>(arr: T[]): T[] {
+// Xáo trộn mảng (Fisher-Yates)
+const shuffle = <T,>(arr: T[]): T[] => {
   const a = [...arr]
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -33,8 +34,10 @@ export default function FeedTheWord() {
   const [score, setScore] = useState(0)
   const [showResult, setShowResult] = useState(false)
 
-  const allWords = island?.levels.flatMap((l) => l.words) || []
+  // Tất cả từ vựng của island — memoized để tránh tạo array mới mỗi render
+  const allWords = useMemo(() => island?.levels.flatMap((l) => l.words) || [], [island])
 
+  // Khởi tạo session khi level thay đổi
   useEffect(() => {
     if (!level) return
     const session = shuffle(level.words).slice(0, 5)
@@ -44,12 +47,14 @@ export default function FeedTheWord() {
     setShowResult(false)
   }, [level])
 
+  // Xây dựng 3 đáp án (1 đúng + 2 nhiễu)
   const buildOptions = useCallback((correct: Word) => {
     const others = shuffle(allWords.filter((w) => w.id !== correct.id))
     const distractors = others.slice(0, 2)
     setOptions(shuffle([correct, ...distractors]))
   }, [allWords])
 
+  // Reset options khi chuyển từ
   useEffect(() => {
     if (sessionWords.length > 0 && currentIdx < sessionWords.length) {
       buildOptions(sessionWords[currentIdx])
@@ -58,7 +63,8 @@ export default function FeedTheWord() {
     }
   }, [sessionWords, currentIdx, buildOptions])
 
-  const handleSelect = async (word: Word) => {
+  // Xử lý chọn đáp án — được memo để pass xuống WordCard
+  const handleSelect = useCallback(async (word: Word) => {
     if (feedback) return
     const correct = sessionWords[currentIdx]
     setFeedbackWord(word)
@@ -77,7 +83,7 @@ export default function FeedTheWord() {
         setCurrentIdx((i) => i + 1)
       }
     }, 1200)
-  }
+  }, [feedback, sessionWords, currentIdx, dispatch])
 
   if (!island || !level) {
     return (

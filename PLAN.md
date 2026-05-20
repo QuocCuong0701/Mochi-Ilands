@@ -24,14 +24,14 @@
 
 ---
 
-## Phase 1 — Màn hình Mochi cốt lõi ⏳
+## Phase 1 — Màn hình Mochi cốt lõi ✅
 
 | Step | Status |
 |------|--------|
-| 1.1 Mochi animations hoàn chỉnh (idle, happy, sad, eat, dance) — Phaser scene | ⏳ |
-| 1.2 Mochi state machine (hunger decay, happiness decay over time) | ⏳ |
-| 1.3 HUD — ProgressBar cho hunger/happiness, Star Fruit counter | ⏳ |
-| 1.4 Main screen layout — Mochi + buttons ("Học ngay", "Cho ăn", "Đảo") | ✅ Stub |
+| 1.1 Mochi animations hoàn chỉnh (idle, happy, sad, eat, dance) — Phaser scene | ✅ |
+| 1.2 Mochi state machine (hunger decay, happiness decay over time) | ✅ |
+| 1.3 HUD — ProgressBar cho hunger/happiness, Star Fruit counter | ✅ |
+| 1.4 Main screen layout — Mochi + buttons + HUD | ✅ |
 
 ---
 
@@ -95,7 +95,7 @@
 
 | Step | Status |
 |------|--------|
-| 7.1 LocalStorage save/load | ⏳ |
+| 7.1 Capacitor Preferences save/load | ✅ |
 | 7.2 Firebase Firestore — cloud sync (premium) | ⏳ |
 | 7.3 Auth — anonymous Firebase Auth hoặc mã PIN | ⏳ |
 

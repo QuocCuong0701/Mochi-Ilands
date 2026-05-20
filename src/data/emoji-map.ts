@@ -1,3 +1,4 @@
+// Map từ vựng -> emoji tương ứng để hiển thị trực quan
 const emojiMap: Record<string, string> = {
   cat: '🐱', dog: '🐶', fish: '🐟', bird: '🐦',
   rabbit: '🐰', duck: '🦆', frog: '🐸', turtle: '🐢',
@@ -13,6 +14,6 @@ const emojiMap: Record<string, string> = {
   noodle: '🍜', pizza: '🍕', burger: '🍔', sandwich: '🥪',
 }
 
-export function getEmoji(word: string): string {
-  return emojiMap[word.toLowerCase()] || '✨'
-}
+// Trả về emoji cho từ vựng, fallback '✨' nếu không có
+export const getEmoji = (word: string): string =>
+  emojiMap[word.toLowerCase()] || '✨'

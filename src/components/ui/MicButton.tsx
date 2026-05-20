@@ -4,6 +4,7 @@ interface Props {
   disabled?: boolean
 }
 
+// Nút mic hình tròn — đổi màu khi đang listening, có animation pulse
 export default function MicButton({ active, onClick, disabled }: Props) {
   return (
     <button

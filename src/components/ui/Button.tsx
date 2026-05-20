@@ -8,6 +8,7 @@ interface Props {
   style?: React.CSSProperties
 }
 
+// Style mặc định cho tất cả button
 const baseStyle: React.CSSProperties = {
   fontFamily: 'var(--font-body)',
   fontWeight: 800,
@@ -24,6 +25,7 @@ const baseStyle: React.CSSProperties = {
 }
 
 export default function Button({ variant = 'primary', onClick, disabled, children, style }: Props) {
+  // Style theo variant: primary (cam đậm) hoặc secondary (trắng + viền tím)
   const variantStyles: React.CSSProperties =
     variant === 'primary'
       ? {

@@ -5,6 +5,7 @@ interface Props {
   locked?: boolean
 }
 
+// Thanh progress có label + % + sao, hỗ trợ trạng thái locked
 export default function ProgressBar({ label, percent, stars = 0, locked }: Props) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

@@ -8,6 +8,7 @@ interface Props {
   disabled?: boolean
 }
 
+// Thẻ từ vựng — hiển thị emoji + từ + nghĩa, hỗ trợ 3 trạng thái
 export default function WordCard({ word, meaning, state = 'default', onClick, disabled }: Props) {
   const borderColor =
     state === 'correct' ? '#5BC97A' :

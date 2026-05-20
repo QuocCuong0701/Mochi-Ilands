@@ -14,6 +14,7 @@ export default function IslandMap() {
       padding: '20px',
       background: 'linear-gradient(160deg, #F0EEFF 0%, #FFF7EF 100%)',
     }}>
+      {/* Tiêu đề */}
       <div style={{
         fontFamily: 'var(--font-heading)',
         fontWeight: 800,
@@ -25,6 +26,7 @@ export default function IslandMap() {
         🗺️ Bản đồ đảo
       </div>
 
+      {/* Danh sách đảo */}
       <div style={{
         display: 'flex',
         flexDirection: 'column',
@@ -34,6 +36,7 @@ export default function IslandMap() {
         paddingBottom: '16px',
       }}>
         {islands.map((island, idx) => {
+          // Chỉ đảo đầu tiên được mở khóa
           const unlocked = idx === 0
           return (
             <button
@@ -77,6 +80,7 @@ export default function IslandMap() {
                   {island.theme} · {island.levels.length * 8} từ
                 </span>
               </div>
+              {/* Badge trạng thái đảo */}
               {idx === 0 && (
                 <div style={{
                   marginLeft: 'auto',
@@ -111,6 +115,7 @@ export default function IslandMap() {
         })}
       </div>
 
+      {/* Khu vực progress level (hardcoded tạm thời) */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <div style={{
           padding: '14px 18px',

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PhaserGame from '../components/game/PhaserGame'
 import { useGame } from '../store/GameContext'
@@ -10,13 +10,15 @@ export default function FeedScreen() {
   const { mochi, dispatch } = useGame()
   const [amount, setAmount] = useState(1)
   const [fed, setFed] = useState(false)
+  const canFeed = mochi.starFruits >= amount && amount > 0
 
-  const handleFeed = () => {
-    if (mochi.starFruits < amount) return
+  // Xử lý cho Mochi ăn — được memo để pass xuống Button
+  const handleFeed = useCallback(() => {
+    if (!canFeed) return
     dispatch({ type: 'FEED_MOCHI', amount })
     setFed(true)
     setTimeout(() => setFed(false), 2000)
-  }
+  }, [canFeed, amount, dispatch])
 
   return (
     <div style={{
@@ -28,6 +30,7 @@ export default function FeedScreen() {
       background: 'linear-gradient(160deg, #F0EEFF 0%, #FFF7EF 100%)',
       fontFamily: 'var(--font-body)',
     }}>
+      {/* Tiêu đề */}
       <div style={{
         fontFamily: 'var(--font-heading)',
         fontWeight: 800,
@@ -38,12 +41,14 @@ export default function FeedScreen() {
         🍎 Cho Mochi ăn
       </div>
 
+      {/* Số sao hiện có */}
       <div style={{ marginBottom: '12px' }}>
         <StarBadge count={mochi.starFruits} />
       </div>
 
       <PhaserGame width={160} height={160} />
 
+      {/* Chỉ số hunger / happiness */}
       <div style={{
         display: 'flex',
         gap: '20px',
@@ -56,6 +61,7 @@ export default function FeedScreen() {
         <span>❤️ Hạnh phúc: {mochi.happiness}%</span>
       </div>
 
+      {/* Bộ chọn số lượng + nút cho ăn */}
       <div style={{
         flex: 1,
         display: 'flex',
@@ -67,6 +73,7 @@ export default function FeedScreen() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
           <button
             onClick={() => setAmount(Math.max(1, amount - 1))}
+            disabled={mochi.starFruits === 0 || amount <= 1}
             style={{
               width: '48px',
               height: '48px',
@@ -74,9 +81,10 @@ export default function FeedScreen() {
               fontSize: '24px',
               fontWeight: 700,
               background: '#fff',
-              color: '#5B4FCF',
-              border: '3px solid #C5B8FF',
-              cursor: 'pointer',
+              color: mochi.starFruits === 0 ? '#ccc' : '#5B4FCF',
+              border: `3px solid ${mochi.starFruits === 0 ? '#eee' : '#C5B8FF'}`,
+              cursor: mochi.starFruits === 0 ? 'default' : 'pointer',
+              opacity: mochi.starFruits === 0 ? 0.5 : 1,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -96,6 +104,7 @@ export default function FeedScreen() {
           </span>
           <button
             onClick={() => setAmount(Math.min(5, amount + 1))}
+            disabled={mochi.starFruits === 0 || amount >= 5}
             style={{
               width: '48px',
               height: '48px',
@@ -103,9 +112,10 @@ export default function FeedScreen() {
               fontSize: '24px',
               fontWeight: 700,
               background: '#fff',
-              color: '#5B4FCF',
-              border: '3px solid #C5B8FF',
-              cursor: 'pointer',
+              color: mochi.starFruits === 0 ? '#ccc' : '#5B4FCF',
+              border: `3px solid ${mochi.starFruits === 0 ? '#eee' : '#C5B8FF'}`,
+              cursor: mochi.starFruits === 0 ? 'default' : 'pointer',
+              opacity: mochi.starFruits === 0 ? 0.5 : 1,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -115,15 +125,27 @@ export default function FeedScreen() {
           </button>
         </div>
 
+        {/* Cảnh báo hết sao */}
+        {mochi.starFruits === 0 && (
+          <div style={{
+            fontSize: '14px',
+            fontWeight: 800,
+            color: '#C94444',
+            textAlign: 'center',
+          }}>
+            😅 Hết Star Fruit rồi! Chơi game để kiếm thêm nhé.
+          </div>
+        )}
         <Button
           variant="primary"
           onClick={handleFeed}
-          disabled={mochi.starFruits < amount}
+          disabled={!canFeed}
         >
           {fed ? '😋 Mochi đang ăn...' : `🍴 Cho ăn (${amount} ⭐)`}
         </Button>
       </div>
 
+      {/* Nút về nhà */}
       <Button variant="secondary" onClick={() => navigate('/')}>
         ← Về nhà
       </Button>

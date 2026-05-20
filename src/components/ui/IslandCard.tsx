@@ -8,6 +8,7 @@ interface Props {
   onClick?: () => void
 }
 
+// Card hiển thị một hòn đảo trên bản đồ, hỗ trợ locked/badge
 export default function IslandCard({
   icon, name, subtitle, badge, badgeColor = '#5BC97A', locked, onClick,
 }: Props) {

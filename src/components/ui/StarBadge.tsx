@@ -2,6 +2,7 @@ interface Props {
   count: number
 }
 
+// Badge hiển thị số Star Fruit, style giống pill màu vàng
 export default function StarBadge({ count }: Props) {
   return (
     <span style={{

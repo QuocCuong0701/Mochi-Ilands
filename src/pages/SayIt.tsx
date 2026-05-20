@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getIsland } from '../data/islands'
 import { useGame } from '../store/GameContext'
@@ -8,7 +8,8 @@ import Button from '../components/ui/Button'
 import MicButton from '../components/ui/MicButton'
 import type { Word } from '../types'
 
-function shuffle<T>(arr: T[]): T[] {
+// Xáo trộn mảng (Fisher-Yates)
+const shuffle = <T,>(arr: T[]): T[] => {
   const a = [...arr]
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -32,6 +33,7 @@ export default function SayIt() {
   const [score, setScore] = useState(0)
   const [showResult, setShowResult] = useState(false)
 
+  // Khởi tạo session khi level thay đổi
   useEffect(() => {
     if (!level) return
     const session = shuffle(level.words).slice(0, 5)
@@ -43,7 +45,8 @@ export default function SayIt() {
 
   const currentWord = sessionWords[currentIdx]
 
-  const handleListen = async () => {
+  // Xử lý bấm mic — được memo để pass xuống MicButton
+  const handleListen = useCallback(async () => {
     if (!currentWord || listening) return
     setListening(true)
     setFeedback(null)
@@ -69,7 +72,7 @@ export default function SayIt() {
         setCurrentIdx((i) => i + 1)
       }
     }, 1500)
-  }
+  }, [currentWord, listening, dispatch, currentIdx, sessionWords.length])
 
   if (!island || !level) {
     return (
